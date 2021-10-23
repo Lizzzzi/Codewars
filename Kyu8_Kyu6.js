@@ -20,4 +20,21 @@ console.log(getDay(60, true));  //("February, 29")
 console.log(getDay(365, false)); //("December, 31")
 console.log(getDay(366, true)); //("December, 31")
 
+console.log("------------- NEXT KATA -----------" )
 // 6 kyu  https://www.codewars.com/kata/55e2adece53b4cdcb900006c
+
+function race(v1, v2, g) {
+    if (v1 > v2) return null;
+    let time = Math.trunc(g * 3600 / (v2 - v1));
+    let sec = (time % 60);
+    let hour = Math.trunc(g / (v2 - v1));
+    let min = (time - sec - (hour * 3600)) / 60;
+
+    return [hour, min, sec]
+}
+
+console.log(race(720, 850, 70)); //[0, 32, 18])
+console.log(race(80, 91, 37)); // [3, 21, 49])
+console.log(race(80, 100, 40)); // [2, 0, 0])
+
+console.log("------------- NEXT KATA -----------" )
