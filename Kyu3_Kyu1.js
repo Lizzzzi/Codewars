@@ -1,6 +1,6 @@
 // 3 kyu https://www.codewars.com/kata/5376b901424ed4f8c20002b7
 
-// Calculate a pair of closest points in linearithmic time
+//VariantA Calculate a pair of closest points in linearithmic time
 function closestPairA(points) {
 
     const sortedP = points.sort((a, b) => a[0]-b[0]);
@@ -31,6 +31,8 @@ function closestPairA(points) {
 
     return minPair;
 }
+
+//VariantB Calculate a pair of closest points in linearithmic time
 function closestPairB(p) {
     const X = 0, Y = 1;
     var dis, res, min = 1e20;
@@ -45,7 +47,7 @@ function closestPairB(p) {
     return res
 }
 
-// Calculate a pair of closest points in linearithmic time
+//VariantC Calculate a pair of closest points in linearithmic time
 function closestPairC(points) {
 
     const sortedP = points.sort((a, b) => a[0]-b[0]);
