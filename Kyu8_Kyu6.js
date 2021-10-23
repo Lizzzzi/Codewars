@@ -1,5 +1,5 @@
 
-//6Kyu https://www.codewars.com/kata/602afedfd4a64d0008eb4e6e/train/javascript
+//6 kyu https://www.codewars.com/kata/602afedfd4a64d0008eb4e6e/train/javascript
 
 function getDay(day, isLeap){
     const months = ['January, ', 'February, ', 'March, ', 'April, ', 'May, ', 'June, ', 'July, ',
@@ -20,3 +20,4 @@ console.log(getDay(60, true));  //("February, 29")
 console.log(getDay(365, false)); //("December, 31")
 console.log(getDay(366, true)); //("December, 31")
 
+// 6 kyu  https://www.codewars.com/kata/55e2adece53b4cdcb900006c
