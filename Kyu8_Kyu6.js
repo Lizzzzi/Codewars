@@ -38,3 +38,27 @@ console.log(race(80, 91, 37)); // [3, 21, 49])
 console.log(race(80, 100, 40)); // [2, 0, 0])
 
 console.log("------------- NEXT KATA -----------" )
+
+// 7 kyu   https://www.codewars.com/kata/5e2596a9ad937f002e510435
+
+function infected(s) {
+    const arr = s.split('X');
+    let count1 = 0;
+    let count0 = 0;
+    for (let el of arr) {
+
+        if (el.includes('1')) {
+            count1 += el.length;
+        } else count0 += el.length;
+    }
+    if (count1 == 0) return 0;
+    return count1 * 100 / (count1 + count0);
+}
+
+console.log( infected("01000000X000X011X0X")); // 73.33333333333333;
+console.log( infected("01X000X010X011XX")); //  72.72727272727273;
+console.log( infected("XXXXX")); //  0;
+console.log( infected("0000000010")); //  100;
+console.log( infected("X00X000000X10X0100")); //  42.857142857142854;
+
+console.log("------------- NEXT KATA -----------" )
