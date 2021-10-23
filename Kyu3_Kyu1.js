@@ -1,11 +1,10 @@
 // 3 kyu https://www.codewars.com/kata/5376b901424ed4f8c20002b7
 
-//VariantA Calculate a pair of closest points in linearithmic time
-function closestPairA(points) {
+//  Calculate a pair of closest points in linearithmic time
+function closestPair(points) {
 
     const sortedP = points.sort((a, b) => a[0]-b[0]);
 
-    //let minArr = [points[0], points[1]];
     let d = ((sortedP[0][0] - sortedP[1][0])** 2 + (sortedP[0][1] - sortedP[1][1])** 2);
     let minPair = [sortedP[0], sortedP[1]];
     let filtredD = [sortedP[0], sortedP[1]];
@@ -25,59 +24,44 @@ function closestPairA(points) {
                 }
             }
         }
-
         filtredD.push(sortedP[i]);
     }
-
     return minPair;
 }
 
-//VariantB Calculate a pair of closest points in linearithmic time
-function closestPairB(p) {
-    const X = 0, Y = 1;
-    var dis, res, min = 1e20;
-    p = p.sort( (a, b) => a[X] - b[X] );
-    for (var a = 0; a < p.length-1; a++)
-        for (var b = a + 1; b < p.length && (p[b][X] - p[a][X]) ** 2 < min; b++) {
-            dis = (p[b][X] - p[a][X]) ** 2 + (p[b][Y] - p[a][Y]) ** 2;
-            if (dis < min){
-                min = dis;
-                res = [p[a], p[b]];
-            } }
-    return res
-}
+const points1 = [
+    [2,2], // A
+    [2,8], // B
+    [5,5], // C
+    [6,3], // D
+    [6,7], // E
+    [7,4], // F
+    [7,9]  // G
+];
+const points2 = [
+    [2,2], // A
+    [2,8], // B
+];
+const points3 = [
+    [2,2], // A
+    [2,8], // B
+    [5,5], // C
+    [5,5], // C
+    [6,3], // D
+    [6,7], // E
+    [7,4], // F
+    [7,9]  // G
+];
 
-//VariantC Calculate a pair of closest points in linearithmic time
-function closestPairC(points) {
+console.log(closestPair(points1));
+// [ [6,3], [7,4] ];
 
-    const sortedP = points.sort((a, b) => a[0]-b[0]);
+console.log(closestPair(points2));
+// [ [2,2], [2,8] ]
 
-    //let minArr = [points[0], points[1]];
-    let d = ((sortedP[0][0] - sortedP[1][0])** 2 + (sortedP[0][1] - sortedP[1][1])** 2);
-    let minPair = [sortedP[0], sortedP[1]];
-    let filtredD = [sortedP[0], sortedP[1]];
+console.log(closestPair(points3));
+// [ [5,5], [5,5] ]
 
-    for (let i = 2; i < sortedP.length; i++) {
-        let x = sortedP[i][0];
-        let y = sortedP[i][1];
-        filtredD = filtredD.filter(el => ((el[0] - x)** 2) < d );
-
-        for (let j = 0; j < filtredD.length; j++) {
-
-            if ((filtredD[j][1] - y) ** 2 < d) {
-                let dist = (filtredD[j][0] - x)** 2 + (filtredD[j][1] - y)** 2;
-                if (dist < d) {
-                    d = dist;
-                    minPair = [filtredD[j], sortedP[i]];
-                }
-            }
-        }
-
-        filtredD.push(sortedP[i]);
-    }
-
-    return minPair;
-}
 
 console.log("------------- NEXT KATA -----------" )
 
